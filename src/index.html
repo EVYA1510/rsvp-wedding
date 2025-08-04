@@ -4,29 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>החתונה של אביתר ושובל 💍</title>
-
-    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Playfair+Display:wght@600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="styles.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-
-    <style>
-      body {
-        font-family: "Varela Round", sans-serif;
-      }
-      h1,
-      h2 {
-        font-family: "Playfair Display", serif;
-      }
-    </style>
   </head>
 
   <body
@@ -35,26 +18,30 @@
     <div
       class="bg-white shadow-2xl rounded-2xl p-8 max-w-xl w-full text-center animate__animated animate__fadeIn"
     >
-      <h1 class="text-4xl text-gray-800 mb-4">החתונה של אביתר ושובל 💍</h1>
+      <h1 class="text-4xl text-gray-800 mb-4 font-bold">
+        החתונה של אביתר ושובל 💍
+      </h1>
 
-      <!-- אזור תמונה -->
       <div class="mb-6">
         <img
-          src="invitation.png"
+          src="/invitation.png"
           alt="הזמנה לחתונה"
           class="rounded-xl shadow-md mx-auto max-h-96 object-contain"
         />
       </div>
 
-      <p class="text-lg text-gray-700 mb-6">
+      <p class="text-lg text-gray-700 mb-2">
         יום שלישי, 09.09.2025 | אולם הפרדס, רחובות
       </p>
+      <div
+        id="countdown"
+        class="text-xl text-pink-600 font-semibold mb-4"
+      ></div>
 
       <h2 class="text-2xl text-gray-700 mb-4">
         שלום <span id="guestName" class="text-pink-600 font-bold">אורח</span> 🌸
       </h2>
 
-      <!-- טופס אישור הגעה -->
       <form id="rsvpForm" class="space-y-4 text-right">
         <label class="block">
           <span class="block mb-1">האם תגיעו?</span>
@@ -66,7 +53,7 @@
           </select>
         </label>
 
-        <label id="guestsWrapper" class="block" style="display: none">
+        <label id="guestsWrapper" class="block hidden">
           <span class="block mb-1">כמה אורחים תגיעו בסך הכול?</span>
           <input
             type="number"
@@ -77,6 +64,15 @@
           />
         </label>
 
+        <label class="block">
+          <span class="block mb-1">רוצה לכתוב לנו ברכה?</span>
+          <textarea
+            id="blessing"
+            rows="3"
+            class="w-full p-2 rounded border border-gray-300"
+          ></textarea>
+        </label>
+
         <button
           type="submit"
           class="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-full"
@@ -84,6 +80,11 @@
           שלח אישור
         </button>
       </form>
+
+      <div
+        id="thankYouMessage"
+        class="hidden mt-6 text-green-600 font-bold"
+      ></div>
 
       <div class="space-y-3 mt-6">
         <a
@@ -93,7 +94,7 @@
           >📍 ניווט לאולם</a
         >
         <a
-          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=החתונה של אביתר ושובל 💍&dates=20250909T160000Z/20250910T210000Z&location=N+34°47'23.0&quot;E+10.8°31'54&quot;&details=💍 קבלת פנים – 19:00%0A🕊️ חופה – 20:00%0A💃 ריקודים – 21:00%0A%0Aנשמח לראות אתכם ולחגוג יחד ❤️"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=החתונה של אביתר ושובל 💍&dates=20250909T160000Z/20250910T210000Z"
           target="_blank"
           class="text-blue-600 hover:underline text-base"
           >📅 הוספה ללוח שנה</a
@@ -103,6 +104,8 @@
       <p class="text-sm text-gray-400 mt-8">באהבה, אביתר ושובל 💖</p>
     </div>
 
+    <script src="components/countdown.js"></script>
+    <script src="components/thankyou.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
